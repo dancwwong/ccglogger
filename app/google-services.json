@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "578384675554",
+    "firebase_url": "https://ccglogger-3c69c.firebaseio.com",
+    "project_id": "ccglogger-3c69c",
+    "storage_bucket": "ccglogger-3c69c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578384675554:android:71b93a6eb33bf372",
+        "android_client_info": {
+          "package_name": "com.kdwong.ccglogger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578384675554-ie99gruskce0arbq4l3aiul7qg93cic8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kdwong.ccglogger",
+            "certificate_hash": "bc34c09ebf7455b0dceb3bdce2a0058c0274ddc4"
+          }
+        },
+        {
+          "client_id": "578384675554-4uib7oo67hdpa4bmsicfudj0ctnnmhm1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf-Kdumzs_vTBfa-llNSvdivyYXjl3H90"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578384675554-4uib7oo67hdpa4bmsicfudj0ctnnmhm1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
