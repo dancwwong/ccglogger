@@ -16,4 +16,14 @@
     <string name="heading_recent">Recent</string>
     <string name="heading_my_posts">My Posts</string>
     <string name="heading_my_top_posts">My Top Posts</string>
+
+
+    <string name="logo">CCG Logo</string>
+    <string name="welcome_message">Welcome!</string>
+    <string name="practiceMessage">Practiced today:</string>
+    <string name="practicedYes">Yes</string>
+    <string name="PracticedNo">No</string>
+    <string name="ifYes">If yes, how long?</string>
+    <string name="popupEditText_message">Enter time in minutes</string>
+
 </resources>
