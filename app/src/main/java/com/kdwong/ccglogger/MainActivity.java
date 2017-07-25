@@ -1,5 +1,6 @@
 package com.kdwong.ccglogger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,12 +12,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText text;
+    private TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,17 +28,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
-        text = (EditText) findViewById(R.id.input_text);
-        Button button = (Button) findViewById(R.id.log_time);
+
+        text = (TextView) findViewById(R.id.welcome_message);
+        /*Button button = (Button) findViewById(R.id.log_time);
 
         button.setOnClickListener(
                 new View.OnClickListener() {
@@ -47,6 +43,19 @@ public class MainActivity extends AppCompatActivity {
                         logger.logHours(hours);
                     }
                 });
+                */
+        Button calendarBtn = (Button) findViewById(R.id.calendar_button);
+
+        calendarBtn.setOnClickListener(
+                new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+                        Intent i = new Intent(getApplicationContext(), Calendar.class);
+                        startActivity(i);
+
+                    }
+                }
+        );
     }
 
     @Override

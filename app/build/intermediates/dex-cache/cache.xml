@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/kyle/AndroidStudioProjects/ccglogger/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/kyle/AndroidStudioProjects/ccglogger/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_ce37fe52d500394b424b72a049908431e59e324c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/kyle/AndroidStudioProjects/ccglogger/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3f82f4aaa9b2a4281c053bf4b1f6a50f543adf1b">
+        <dex dex="/Users/kyle/AndroidStudioProjects/ccglogger/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_caf317b152417788f0be6e0df3907b76fd362952/classes.dex" />
+    </item>
+
+</items>

@@ -25,5 +25,7 @@
     <string name="PracticedNo">No</string>
     <string name="ifYes">If yes, how long?</string>
     <string name="popupEditText_message">Enter time in minutes</string>
+    <string name="calendar_label">Calendar</string>
+
 
 </resources>

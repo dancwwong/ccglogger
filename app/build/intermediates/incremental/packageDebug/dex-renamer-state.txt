@@ -1,0 +1,7 @@
+#Sun Jul 23 22:19:50 PDT 2017
+base.0=/Users/kyle/AndroidStudioProjects/ccglogger/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_ce37fe52d500394b424b72a049908431e59e324c
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/Users/kyle/AndroidStudioProjects/ccglogger/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_caf317b152417788f0be6e0df3907b76fd362952/classes.dex
+base.1=/Users/kyle/AndroidStudioProjects/ccglogger/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_caf317b152417788f0be6e0df3907b76fd362952
+file.0=/Users/kyle/AndroidStudioProjects/ccglogger/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_ce37fe52d500394b424b72a049908431e59e324c/classes.dex
