@@ -106,11 +106,25 @@ public class Student {
     }
 
     public void setLastPracticeDate(Date lastPracticeDate) {
-        this.lastPracticeDate = lastPracticeDate;
+        this.lastPracticeDate = convertDate(lastPracticeDate);
+    }
+
+    public int missedDays(){
+        Date date = convertDate(new Date());
+        if (lastPracticeDate == null){
+            return 0;
+        }
+        long diff = date.getTime()-lastPracticeDate.getTime();
+        return (int)(diff / (1000 * 60 * 60 * 24));
     }
 
     public void incrementPracticeStreak() {
         practiceStreak++;
+    }
+
+    public void updateLastPracticeDate(){
+        Date date = new Date();
+        setLastPracticeDate(date);
     }
 
     public void writeToDatabase() {
@@ -118,8 +132,21 @@ public class Student {
         studentRef.child("name").setValue(name);
         studentRef.child("email").setValue(email);
         studentRef.child("practiceStreak").setValue(practiceStreak);
+        if (lastPracticeDate!= null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            studentRef.child("lastPracticeDate").setValue(dateFormat.format(lastPracticeDate));
+        }
+    }
+
+    private Date convertDate(Date date){
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        studentRef.child("lastPracticeDate").setValue(dateFormat.format(lastPracticeDate));
+        String dateString = dateFormat.format(date);
+        try {
+            return dateFormat.parse(dateString);
+        } catch (ParseException e) {
+            System.err.println("An unexpected error occurred");
+        }
+        return date;
     }
 
     private String usernameFromEmail(String email) {
