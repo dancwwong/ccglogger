@@ -23,7 +23,6 @@ import com.google.firebase.database.ValueEventListener;
 public class Log_form extends AppCompatActivity {
 
     String time;
-    RadioButton practiceBoolean_button;
     private RadioButton yes_button, no_button;
     public int selectedId;
     final Context context = this;
@@ -32,12 +31,7 @@ public class Log_form extends AppCompatActivity {
     public long streakString;
     public int streak;
 
-    public String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference mRootRef = database.getReference();
-    DatabaseReference mPracticeStreak = mRootRef.child("students").child(uid).child("practiceStreak");
+    Student student = Student.me();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,25 +46,6 @@ public class Log_form extends AppCompatActivity {
 
 
         Button logBtn = (Button) findViewById(R.id.log_form_submit);
-
-
-        mPracticeStreak.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                streakString = (Long) dataSnapshot.getValue();
-                Logger logger = Logger.getInstance();
-//                logger.updateStreak(streakString);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(),"An unexpected error occurred",Toast.LENGTH_LONG).show();
-
-            }
-        });
-
-            streak=(int) streakString;
-
 
         logBtn.setOnClickListener(
                 new View.OnClickListener(){
@@ -96,15 +71,13 @@ public class Log_form extends AppCompatActivity {
                         if(selectedId == R.id.yes_button1){
                             Toast.makeText(getApplicationContext(),"yes",Toast.LENGTH_LONG).show();
                             practiceBoolean =true;
-                            streak++;
-                            mPracticeStreak.setValue(streak);
-
+                            student.incrementPracticeStreak();
+                            student.writeToDatabase();
                         } else if(selectedId == R.id.no_button1){
                             Toast.makeText(getApplicationContext(),"no",Toast.LENGTH_LONG).show();
                             practiceBoolean = false;
-                            streak =0;
-                            mPracticeStreak.setValue(streak);
-
+                            student.setPracticeStreak(0);
+                            student.writeToDatabase();
                         }else{
 
                         }
