@@ -59,6 +59,16 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         }
     }
 
+    @Override
+    public void onClick(View v) {
+        int i = v.getId();
+        if (i == R.id.button_sign_in) {
+            signIn();
+        } else if (i == R.id.button_sign_up) {
+            signUp();
+        }
+    }
+
     private void signIn() {
         Log.d(TAG, "signIn");
         if (!validateForm()) {
@@ -80,8 +90,11 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
                             onAuthSuccess(task.getResult().getUser());
                         } else {
                             Exception exception = task.getException();
-                            Toast.makeText(SignInActivity.this, "Sign In Failed",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(
+                                    SignInActivity.this,
+                                    "Sign In Failed: " + exception.getMessage(),
+                                    Toast.LENGTH_SHORT)
+                                    .show();
                         }
                     }
                 });
@@ -107,17 +120,18 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
                         } else {
-                            Toast.makeText(SignInActivity.this, "Sign Up Failed",
-                                    Toast.LENGTH_SHORT).show();
+                            Exception exception = task.getException();
+                            Toast.makeText(SignInActivity.this,
+                                    "Sign Up Failed: " + exception.getMessage(),
+                                    Toast.LENGTH_SHORT)
+                                    .show();
                         }
                     }
                 });
     }
 
     private void onAuthSuccess(FirebaseUser user) {
-        Logger.initialize(user);
-        Logger logger = Logger.getInstance();
-        logger.logStudent();
+        Student.initialize(user);
 
         // Go to MainActivity
         startActivity(new Intent(SignInActivity.this, MainActivity.class));
@@ -141,23 +155,5 @@ public class SignInActivity extends BaseActivity implements View.OnClickListener
         }
 
         return result;
-    }
-
-    // [START basic_write]
-    private void writeNewUser(String userId, String name, String email) {
-        Student user = new Student(name, email);
-
-        mDatabase.child("users").child(userId).setValue(user);
-    }
-    // [END basic_write]
-
-    @Override
-    public void onClick(View v) {
-        int i = v.getId();
-        if (i == R.id.button_sign_in) {
-            signIn();
-        } else if (i == R.id.button_sign_up) {
-            signUp();
-        }
     }
 }
